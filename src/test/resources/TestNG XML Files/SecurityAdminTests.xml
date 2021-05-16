@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="EntityTests" verbose="0" parallel="classes" thread-count="1" configfailurepolicy="continue">
+
+    <listeners>
+        <listener class-name="Helpers.AnnotationTransformer"/>
+    </listeners>
+
+    <test name="Entity-Regression" enabled="true">
+        <groups>
+            <run>
+                <include name="Entity"></include>
+            </run>
+        </groups>
+        <classes>
+            <class name="SecurityAdminTests.TC_01_VerifyUserIsAbleToAddEntitySuccessfully"></class>
+            <class name="SecurityAdminTests.TC_02_VerifyErrorDisplayedWhileAddingEntity"></class>
+            <class name="SecurityAdminTests.TC_03_VerifyUserIsAbleToEditEntity"></class>
+            <class name="SecurityAdminTests.TC_04_VerifyUserIsAbleToDeleteEntity"></class>
+            <class name="SecurityAdminTests.TC_05_VerifyDashboard"></class>
+        </classes>
+
+
+    </test>
+</suite>
