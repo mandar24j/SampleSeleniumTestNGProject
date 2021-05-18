@@ -1,13 +1,14 @@
 package SecurityAdminTests;
 
+import BaseTest.BaseTest;
 import BaseTest.TestData;
 import Pages.EntitiesPage;
 import Pages.HomePage;
 import org.testng.annotations.Test;
 
-public class TC_01_VerifyUserIsAbleToAddEntitySuccessfully {
+public class TC_01_VerifyUserIsAbleToAddEntitySuccessfully extends BaseTest {
     @Test(enabled = true, groups = {"Entity"}, dataProviderClass = TestData.class, dataProvider = "AddEntitySuccessfully")
-    public void TC_001_VerifyUserIsAbleToAddEntitySuccessfully(String TCname, String name, String entityType, String description, String externalEntityId, String subscribedApplications, String assignedAuthenticationTypes,
+    public void TC_001_VerifyUserIsAbleToAddEntitySuccessfully(String name, String entityType, String description, String externalEntityId, String subscribedApplications, String assignedAuthenticationTypes,
                                                                String activePassive, String password, String message) {
         HomePage homePage = new HomePage();
         homePage.navigateToHomePage();

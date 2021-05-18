@@ -1,5 +1,6 @@
 package BaseTest;
 
+import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.testng.annotations.DataProvider;
@@ -49,9 +50,12 @@ public class TestData {
             for (int i = 1; i < totalNoOfRows; i++) {
                 if (worksheet.getRow(i).getCell(0).getStringCellValue().equalsIgnoreCase(testCaseName)) {
                     for (int j = 1; j < totalNoOfCols; j++) {
-                        System.out.println(worksheet.getRow(i).getCell(j).getStringCellValue());
-                        arrayExcelData[i - 1][j - 1] = worksheet.getRow(i).getCell(j).getStringCellValue();
+                        if (worksheet.getRow(i).getCell(j) != null) {
+                            worksheet.getRow(i).getCell(j).setCellType(Cell.CELL_TYPE_STRING);
+                            arrayExcelData[i - 1][j - 1] = worksheet.getRow(i).getCell(j).getStringCellValue();
+                        }
                     }
+
                 }
             }
         } catch (FileNotFoundException e) {
